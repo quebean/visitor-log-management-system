@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="http://192.168.68.13:8000/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE</title>
+    <link rel="stylesheet" href="css/qrcode.css">
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <img class="logo" width="111" height="108" src="assets/seal.png" alt="seal">
+    <div class="balinginfo">THIS IS YOUR QR CODE</div>
+    <div class="visitId"></div>
+    <div class="form">
+    <div class="qrqr" id="outputQR"></div>
+    </div>
+    <div class="cinfo">Kindly save your QR CODE and use this to scan on every office.</div>
+    <button class="save-btn">Save</button>
+</body>
+<script src="js/generator.js"></script>
+</html>

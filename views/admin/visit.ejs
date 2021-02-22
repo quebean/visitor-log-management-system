@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="http://192.168.68.13:8000/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baste Visitor</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/visit-header.css">
+    <link rel="stylesheet" href="css/tablesortable.css">
+    <script src="js/tablesortable.js"></script>
+    <script src="js/dashboard.js"></script>
+<body>
+   <div class="wrapper">
+        <nav>
+            <div class="nav-container">
+                <div class="brand-container">
+                    <img src="assets/seal.png" alt="" width="100px">
+                    <h1>Baste Visitor</h1>
+                </div>
+                <div class="navigation">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="admin/dashboard">Dashboard</a></li>
+                        <li class="nav-item active"><a href="admin/visit">Visit List</a></li>
+                        <li class="nav-item"><a href="admin/covid">Covid List</a></li>
+                        <li class="nav-item"><a href="admin/office">Office List</a></li>
+                        <li class="nav-item"><a href="admin/create-office">Create Office</a></li>
+                        <li class="nav-item"><a href="admin/scanner">Scanner</a></li>
+                        <li class="nav-item"><a href="auth/logout">Logout</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+
+        <main>
+            <div class="main-container">
+                <div class="titlepage">
+                    <h1>Visit Log</h1>
+                </div>
+                <div class="visit-header">
+                    <form>
+                        <div>
+                            <label for="date">Date</label>
+                            <input type="date" name="date" id="date">
+                        </div>
+                        <div>
+                            <input type="search" name="search" id="search" placeholder="Search name...">
+                            <button id="search-btn">Search</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="table">
+                    <table class="table-sortable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Time in</th>
+                                <th>Time out</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- TABLE DATA GOES HERE-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+   </div>
+</body>
+
+<script src="js/visit.js" defer></script>
+
+</html>

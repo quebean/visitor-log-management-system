@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  padding: 0 10px;
+}
+hr {
+  margin-bottom: 20px;
+  margin-top: 0px;
+  background-color: #06623b;
+  height: auto;
+  border: #06623b #053a03 solid;
+}
+.setup-container {
+  max-width: 600px;
+  width: 100%;
+  background: #ffff;
+  margin: 110px auto;
+  padding: 30px;
+  box-shadow: 10px 10px 11px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  border: 1px solid #06623b;
+}
+.setup-container .binfo {
+  font-size: 27px;
+  font-weight: 700;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #06623b;
+}
+.setup-container .form {
+  width: 100%;
+}
+.setup-container .form .input_field {
+  margin-bottom: 30px;
+  margin-right: 0px;
+}
+.setup-container .form .input_field label {
+  width: 20px;
+  color: #0f1123;
+  margin-left: auto;
+  font-size: 14px;
+}
+.setup-container .form .input_field label input {
+  margin: auto;
+}
+.setup-container .form .input_field .input,
+.setup-container .form .input_field .textarea {
+  width: 90%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  align-items: center;
+  margin-left: 20px;
+}
+.setup-container .form .input_field .textarea {
+  resize: none;
+  height: 125px;
+}
+.setup-container .form .input_field .input:focus,
+.setup-container .form .input_field .textarea:focus {
+  border: 1px solid #06623b;
+}
+.setup-container .form .input_field .btn {
+  width: 90%;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 0;
+  background: #06623b;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 9px;
+  outline: none;
+  margin-left: 20px;
+}
+.setup-container .form .input_field:last-child {
+  margin-bottom: 0;
+}
+.setup-container .form .input_field .btn:hover {
+  background: #06623b;
+}
+.label_link {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: #06623b;
+  font-size: smaller;
+}
+a:hover {
+  color: #649d66;
+}

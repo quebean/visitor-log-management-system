@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="http://192.168.68.13:8000/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Profile | Admin Page</title>
+    <link rel="stylesheet" href="css/coffice.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <nav>
+            <div class="nav-container">
+                <div class="brand-container">
+                    <img src="assets/seal.png" alt="" width="100px">
+                    <h1>Baste Visitor</h1>
+                </div>
+                <div class="navigation">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="admin/dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a href="admin/visit">Visit List</a></li>
+                        <li class="nav-item"><a href="admin/covid">Covid List</a></li>
+                        <li class="nav-item"><a href="admin/office">Office List</a></li>
+                        <li class="nav-item active"><a href="admin/create-office">Create Office</a></li>
+                        <li class="nav-item"><a href="admin/scanner">Scanner</a></li>
+                        <li class="nav-item"><a href="auth/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="main-container">
+                <div class="setup-container">
+                    <div class="binfo">Set-up Office Profile </div>
+                    <form class="form">
+                        <div class="input_field">
+                            <input type="text" class="input" placeholder="Office name" name="officeName" id="officeName" required>
+                        </div>
+                        <div class="input_field">
+                            <input type="text" class="input" placeholder="Incharge full name" name="incharge" id="incharge" required>
+                        </div>
+                        <div class="input_field">
+                            <input type="text" class="input" placeholder="Username" name="username" id="username" required>
+                        </div>
+                        <div class="input_field">
+                            <input type="password" class="input" placeholder="Password" name="password" id="password" required>
+                        </div>
+                        <div class="input_field">
+                            <button id="submit" class="btn">Create Office</button>
+                        </div>
+                        <div class="input_field">
+                            <p id="error-message" style="color: red; text-align: center;"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+   </div> 
+</body>
+<script src="js/coffice.js"></script>
+</html>

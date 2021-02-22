@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="http://192.168.68.13:8000/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracking Form | SSCRdC</title>
+    <link rel="stylesheet" href="css/survey.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title"> San Sebastian College - Recoletos de Cavite </div>
+    <div class="stitle"> Office for Safety and Security </div> <br>
+    <form class="form" action="survey" method="POST">
+        <div class="binfo">Personal Info</div>
+        <div class="input_field">
+            <label for="age">Age</label>
+            <input type="number" class="input" name="age" id="age" required>
+        </div>
+        <div class="input_field">
+            <label for="sex">Sex</label>
+            <br><input type="radio" name="sex" value="male" required><label for="fever">Male</label>
+            <br><input type="radio"  name="sex" value="female" required><label for="sex">Female</label>
+        </div>
+
+        <div class="binfo">Health History</div>
+        <div class="input_field">
+            <label for="temperature">Temperature</label>
+            <input type="number" class="input" name="temperature" id="temperature" required>
+        </div>
+        <div class="input_field">
+            <p>1. Fever of 38°C and above for the past 14 days</p> 
+            <br><input type="radio" name="fever" value="yes" required><label for="fever">Yes</label>
+            <br><input type="radio"  name="fever" value="no" required><label for="fever">No</label>
+        </div>
+
+        <div class="input_field">
+            <p>2. Respiratory Symptoms for the past 14 days</p>
+        </div>
+
+        <div class="input_field">
+            <p>a.) Cough</p> 
+            <br><input type="radio" name="cough" value="yes" required><label for="cough">Yes</label>
+            <br><input type="radio"  name="cough" value="no" required><label for="cough">No</label>
+        </div>
+
+        <div class="input_field">
+            <p>b.) Colds</p> 
+            <br><input type="radio" name="colds" value="yes" required><label for="colds">Yes</label>
+            <br><input type="radio"  name="colds" value="no" required><label for="colds">No</label>
+        </div>
+      
+        <div class="input_field">
+            <p>c.) Shortness of Breath</p> 
+            <br><input type="radio" name="shortnessOfBreath" value="yes" required><label for="shortnessOfBreath">Yes</label>
+            <br><input type="radio"  name="shortnessOfBreath" value="no" required><label for="shortnessOfBreath">No</label>
+        </div>
+
+        <div class="input_field">
+            <p>d.) Diarrhea</p> 
+            <br><input type="radio" name="diarrhea" value="yes" required><label for="diarrhea">Yes</label>
+            <br><input type="radio"  name="diarrhea" value="no" required><label for="diarrhea">No</label> 
+        </div>
+
+        <div class="input_field">
+            <p>e.) Other Symptoms</p> 
+            <input type="text" name="otherSymptoms" class="input">    
+        </div>
+
+        <div class="input_field">
+            <p>3. History of Travel areas with COVID-19 for the past 14 days</p>
+            <br><input type="radio" name="travel" value="yes" required><label for="travel">Yes</label>
+            <br><input type="radio"  name="travel" value="no" required><label for="travel">No</label>
+        </div> 
+      
+        <div class="input_field">
+            <label>If Yes, please indicate where: </label> 
+            <input type="text" class="input" name="location" id="location">
+        </div>
+        <div class="input_field">
+            <p>a.) Close contact with a confirmed or probable covid case </p>
+            <br><input type="radio" name="closeContact" value="yes" required><label for="closeContact">Yes</label>
+            <br><input type="radio" name="closeContact" value="no" required><label for="closeContact">No</label> 
+        </div> 
+
+        <div class="input_field">
+            <p>b.) Providing direct care without a PPE</p>
+            <br><input type="radio" name="careWOPPE" value="yes" required><label for="careWOPPE">Yes</label> 
+            <br><input type="radio" name="careWOPPE" value="no" required><label for="careWOPPE">No</label> 
+        </div> 
+
+        <div class="input_field">
+            <p>c.) Staying in the same close environment</p> 
+            <br><input type="radio" name="closeENV" value="yes" required><label for="closeENV">Yes</label> 
+            <br><input type="radio" name="closeENV" value="no" required><label for="closeENV">No</label> 
+        </div>
+
+        <div class="input_field">
+            <p>d.) Travelling together in close proximity</p> 
+            <br><input type="radio" name="travelTogether" value="yes" required><label for="travelTogether">Yes</label>
+            <br><input type="radio" name="travelTogether" value="no" required><label for="travelTogether">No</label> 
+        </div>
+        
+        <div class="input_field terms">
+            <label class="check">
+                <input type="checkbox" name="agree" id="agree" value="agree" required>
+                <span class="checkmark"></span>
+            </label>
+            <p>I hereby swear that I have answered the above question truthfully and accurately. Furthermore, I hereby undertake to pay the charges and corresponding penalty upon proven that I have LIED. </p>
+        </div>
+        <div class="input_field">
+            <input type="submit" value="Submit" class="btn">
+        </div>
+    </form>
+</div>
+</body>
+</html>

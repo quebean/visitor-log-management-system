@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+body {
+  background: #06623b;
+  padding: 0 10px;
+}
+hr {
+  margin-bottom: 20px;
+  margin-top: 0px;
+  background-color: #06623b;
+  height: auto;
+  border: #06623b #053a03 solid;
+}
+.wrapper {
+  max-width: 450px;
+  width: 100%;
+  background: #ffff;
+  margin: 20px auto;
+  margin-top: 50px;
+  padding: 30px;
+  box-shadow: 10px 10px 11px rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+}
+
+.wrapper .binfo {
+  font-size: 27px;
+  font-weight: 700;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  color: #06623b;
+}
+.wrapper .form {
+  width: 100%;
+}
+.wrapper .form .input_field {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.wrapper .form .input_field label {
+  width: 200px;
+  color: #0f1123;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.wrapper .form .input_field .input,
+.wrapper .form .input_field .textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.wrapper .form .input_field .textarea {
+  resize: none;
+  height: 70px;
+}
+.wrapper .form .input_field .input:focus,
+.wrapper .form .input_field .textarea:focus {
+  border: 1px solid #06623b;
+}
+.wrapper .form .input_field .btn {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 0;
+  background: #06623b;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+.wrapper .form .input_field:last-child {
+  margin-bottom: 0;
+}
+.wrapper .form .input_field .btn:hover {
+  background: #06623b;
+}
+@media (max-width: 420px) {
+  .wrapper .form .input_field {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .input_field label {
+    margin-bottom: 5px;
+  }
+  .wrapper .form .input_field .terms {
+    flex-direction: row;
+  }
+}
+a {
+  text-decoration: none;
+  color: #06623b;
+  font-size: smaller;
+}
+a:hover {
+  color: #649d66;
+}
+.label_link {
+  text-align: center;
+}
