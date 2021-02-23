@@ -7,8 +7,8 @@ function register() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username: 'admin',
-            password: 'admin'
+            username: 'kejatori',
+            password: 'kejatori'
         }),
         mode: 'cors'
     }).then(result => result.json())
