@@ -21,7 +21,7 @@ module.exports.update = async (req, res) => {
     )
     try {
         const result = await User.updateById(req.user.user_id, user);
-        res.status(200).json({success: true});
+        res.status(200).json({success: true, role: result.role});
     } catch (error) {
         console.log(error);
         res.status(500).json({success: false});

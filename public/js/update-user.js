@@ -17,7 +17,11 @@ document.querySelector('#submit').addEventListener('click', async (event) => {
         })
         const data = await result.json();
         if(data.success){
-            window.location = '/admin/office';
+            if (data.role = 'admin') {
+                window.location = '/admin/dashboard';
+            }else{
+                window.location = '/admin/office';
+            }
         }else{
             document.querySelector('#error-message').textContent = data.message;
         }
