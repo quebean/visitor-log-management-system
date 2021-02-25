@@ -54,8 +54,9 @@ function loadData(datas) {
         dataHtml += `<td>${data.fullname}</td>`;
         dataHtml += `<td>${data.timein}</td>`;
         dataHtml += `<td>${data.timeout}</td>`;
-        dataHtml += `<td><a class="details-btn" href="admin/visit/${data.visit_id}">Details<a></td>`; 
+        dataHtml += `<td><a  class="details-btn" href="admin/visit/${data.visit_id}">Details<a></td>`; 
         dataHtml += `</tr>`;
+        
     });
     document.querySelector('tbody').innerHTML = dataHtml;
 }

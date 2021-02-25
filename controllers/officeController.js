@@ -3,7 +3,7 @@ const User = require('../models/user');
 
 module.exports.office = async (req, res) => {
     try {
-        const offices = await Office.find();
+        const offices = await Office.find(req.body.search, req.body.category);
         res.status(200).json({success: true, offices});
     } catch (error) {
         console.log(erorr);

@@ -40,17 +40,33 @@
                 <div class="titlepage">
                     <h1>Office List</h1>
                 </div>
+
+                <div class="visit-header">
+                    <form class="office-form">
+                        <div>
+                            <select name="category" id="category">
+                                <option value="">Category</option>
+                                <option value="incharge">Incharge</option>
+                                <option value="officeName">Office Name</option>
+                            </select>
+                            <input type="search" name="search" id="search" placeholder="Search office...">
+                            <button id="search-btn">Search</button>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="table">
                     <table class="table-sortable">
                         <thead>
                             <tr>
                                 <th>Office Name</th>
                                 <th>Incharge</th>
+                                <th>Username</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Office data goes here -->
+                            <!-- Office data goes here -->           
                         </tbody>
                     </table>
                 </div>

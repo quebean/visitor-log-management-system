@@ -23,11 +23,11 @@ module.exports = class Covid {
 
     static async find(string, category){
         let sql = '';
+        string = `%${string}%`;
         if (category == 'fullname') {
-            sql = `SELECT * FROM visits INNER JOIN covid ON visits.visit_id = covid.visit_id WHERE MATCH (fullname) AGAINST (? IN NATURAL LANGUAGE MODE);`;
+            sql = `SELECT * FROM visits INNER JOIN covid ON visits.visit_id = covid.visit_id WHERE visits.fullname LIKE ?`;
         }else if (category == 'timein') {
-            sql = `SELECT * FROM covid INNER JOIN visits ON visits.visit_id = covid.visit_id WHERE timein LIKE ?`;
-            string = `%${string}%`;
+            sql = `SELECT * FROM covid INNER JOIN visits ON visits.visit_id = covid.visit_id WHERE visits.timein LIKE ?`; 
         }
         const result = await db.promise().query(sql, [string]);
         return result[0];

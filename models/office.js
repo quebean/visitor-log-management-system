@@ -7,14 +7,23 @@ module.exports = class Office {
         this.id = 0;
     }
 
-    static async find(){
-        const sql = 'SELECT * FROM offices';
-        const result = await db.promise().query(sql);
+    static async find(string, category){
+        let sql = '';
+        string = `%${string}%`;
+        if (!string || !category) {
+            sql = 'SELECT offices.office_id, offices.office_name, offices.incharge, users.username FROM offices INNER JOIN users ON users.user_id = offices.user_id';
+            string = '';
+        }else if(category == 'officeName'){
+            sql = 'SELECT offices.office_id, offices.office_name, offices.incharge, users.username FROM offices INNER JOIN users ON users.user_id = offices.user_id WHERE offices.office_name LIKE ?';
+        }else if(category == 'incharge'){
+            sql = 'SELECT offices.office_id, offices.office_name, offices.incharge, users.username FROM offices INNER JOIN users ON users.user_id = offices.user_id WHERE offices.incharge LIKE ?';
+        }
+        const result = await db.promise().query(sql, [string]);
         return result[0];
     }
 
     static async findById(id){
-        const sql = 'SELECT * FROM office WHERE user_id = ?';
+        const sql = 'SELECT * FROM offices WHERE user_id = ?';
         const result = await db.promise().query(sql, [id]);
         return result[0][0];
     }

@@ -11,23 +11,24 @@ module.exports = class Visit{
         this.timeOut = null;
     }
 
+    static async find(string, category){
+        let sql = '';
+        string = `%${string}%`;
+        if (category == 'fullname') {
+            sql = `SELECT * FROM visits WHERE fullname LIKE ?;`;
+        }else if (category == 'timein') {
+            sql = `SELECT * FROM visits WHERE timein LIKE ?;`;
+        }
+        const result = await db.promise().query(sql, [string]);
+        return result[0];
+    }
+
     static async findById(id){
         const sql = 'SELECT * FROM visits WHERE visit_id = ?';
         const result = await db.promise().query(sql, [id]);
         return result[0][0];
     }
 
-    static async find(string, category){
-        let sql = '';
-        if (category == 'fullname') {
-            sql = `SELECT * FROM visits WHERE MATCH (fullname) AGAINST (? IN NATURAL LANGUAGE MODE);`;
-        }else if (category == 'timein') {
-            sql = `SELECT * FROM visits WHERE timein LIKE ?;`;
-            string = `%${string}%`;
-        }
-        const result = await db.promise().query(sql, [string]);
-        return result[0];
-    }
 
     static async create(visit){
         const sql = 'INSERT INTO visits (fullname, address, contact_number, purpose, timein, timeout) VALUES (?, ?, ?, ?, ?, ?)';

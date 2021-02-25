@@ -32,6 +32,7 @@ module.exports = class User{
     static async create(user){
         const salt = await bcrypt.genSalt();
         user.password = await bcrypt.hash(user.password, salt)
+        user.username = user.username.toLowerCase();
         const sql = 'INSERT INTO users (username, password, role) VALUES (?, ?, ?)'
         const params = [user.username, user.password, user.role];
         const result = await db.promise().query(sql, params);

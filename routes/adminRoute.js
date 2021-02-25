@@ -11,7 +11,7 @@ router.post('/visit', visit_post);
 router.get('/covid', (req, res) => res.render('admin/covid'));
 router.post('/covid', covid);
 router.get('/office', (req, res) => res.render('admin/office'));
-router.get('/offices', office);
+router.post('/offices', office);
 router.get('/create-office', (req, res) => res.render('admin/coffice'));
 router.post('/create-office', [validateOffice], create_office_post);
 router.get('/scanner', (req, res) => res.render('admin/scanner'));
