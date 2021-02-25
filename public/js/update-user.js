@@ -17,7 +17,7 @@ document.querySelector('#submit').addEventListener('click', async (event) => {
         })
         const data = await result.json();
         if(data.success){
-            if (data.role = 'admin') {
+            if (data.role == 'admin') {
                 window.location = '/admin/dashboard';
             }else{
                 window.location = '/admin/office';

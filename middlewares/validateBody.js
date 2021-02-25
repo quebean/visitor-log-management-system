@@ -17,8 +17,10 @@ module.exports.validateUpdate = async (req, res, next) => {
     const {username, password} = req.body;
     if(!username || !password){
         res.status(400).json({success: false, message: 'Username and password field can not be empty.'});
+    } else if(username == password) {
+        res.status(400).json({success: false, message: 'Username and password can not be the same.'});
     } else if(password.length < 8) {
-        res.status(400).json({success: false, message: 'Password must be atleast 8 characters long'});
+        res.status(400).json({success: false, message: 'Password must be atleast 8 characters long.'});
     } else{
         try {
             const user = await User.findByUsername(username);
