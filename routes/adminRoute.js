@@ -16,6 +16,7 @@ router.get('/create-office', (req, res) => res.render('admin/coffice'));
 router.post('/create-office', [validateOffice], create_office_post);
 router.get('/scanner', (req, res) => res.render('admin/scanner'));
 router.post('/scanner', scanner_post)
+router.get('/update', (req, res) => res.render('admin/update-user'));
 
 
 module.exports = router;

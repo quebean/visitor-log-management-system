@@ -1,20 +1,15 @@
-const officeName = document.querySelector('#officeName');
-const incharge = document.querySelector('#incharge');
 const username = document.querySelector('#username');
 const password = document.querySelector('#password');
-
 
 document.querySelector('#submit').addEventListener('click', async (event) => {
     event.preventDefault();
     try {
-        const result = await fetch('/admin/create-office', {
+        const result = await fetch('auth/update', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                officeName: officeName.value,
-                incharge: incharge.value,
                 username: username.value,
                 password: password.value
             }),

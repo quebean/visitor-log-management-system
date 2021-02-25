@@ -111,8 +111,6 @@ module.exports.verifyVisitId = (req, res, next) => {
                     const result = await Visit.findById(decodedToken.id);
                     if (result) {
                         req.visitId = result.visit_id;
-                        console.log(result.visit_id);
-                        console.log(result);
                         next();                        
                     }else{
                         res.redirect('/');

@@ -13,20 +13,20 @@ module.exports.login_post = async (req, res) => {
     }
 }
 
-// module.exports.register = async (req, res) => {
-//     const user = new User(
-//         req.body.username,
-//         req.body.password,
-//         'admin'
-//     )
-//     try {
-//         const result = await User.create(user);
-//         res.status(200).json({message: 'Sucesss'});
-//     } catch (error) {
-//         console.log(error);
-//         res.status(400).json({message: 'Failed'});
-//     }
-// }
+module.exports.update = async (req, res) => {
+    const user = new User(
+        req.user.username,
+        req.body.password,
+        req.user.role
+    )
+    try {
+        const result = await User.updateById(req.user.user_id, user);
+        res.status(200).json({success: true});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false});
+    }
+}
 
 module.exports.logout = (req, res) => {
     res.cookie('jwt', '', {httpOnly: true, maxAge: 0});

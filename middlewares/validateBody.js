@@ -13,6 +13,27 @@ module.exports.validateLogin = (req, res, next) => {
     }
 }
 
+module.exports.validateUpdate = async (req, res, next) => {
+    const {username, password} = req.body;
+    if(!username || !password){
+        res.status(400).json({success: false, message: 'Username and password field can not be empty.'});
+    } else if(password.length < 8) {
+        res.status(400).json({success: false, message: 'Password must be atleast 8 characters long'});
+    } else{
+        try {
+            const user = await User.findByUsername(username);
+            if (user) {
+                req.user = user;
+                next();
+            }else{
+                res.status(400).json({success: false, message: 'Username is not registered.'})
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+} 
+
 module.exports.validateCovid = (req, res, next) => {
     if (!req.visitId) {
         res.status(400).redirect('/');
@@ -75,3 +96,4 @@ module.exports.validateVisit = (req, res, next) => {
         res.status(400).json(results);
     }
 }
+
