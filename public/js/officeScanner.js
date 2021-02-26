@@ -7,10 +7,27 @@ let scanner = new Instascan.Scanner({
 
 const snd = new Audio('assets/sound.mp3')
 // Scanner listener then action
-scanner.addListener('scan',function(content){
-    snd.currentTime=.6;
-    snd.play();
-    alert(content);
+scanner.addListener('scan', async (content) => {
+    try {
+        const result = await fetch('/office/log', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: content
+            })
+        })
+        const data = await result.json();
+        console.log(data);
+        if(data.success){
+            snd.currentTime=.6;
+            snd.play();
+        }
+
+    } catch (error) {
+        
+    }
 });
 
 // Camera options and Start

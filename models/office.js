@@ -29,9 +29,16 @@ module.exports = class Office {
     }
 
     static async findByUserId(id){
-        const sql = 'SELECT offices.office_name FROM offices INNER JOIN users ON offices.user_id = users.user_id WHERE offices.user_id = ?';
+        const sql = 'SELECT * FROM offices INNER JOIN users ON offices.user_id = users.user_id WHERE offices.user_id = ?';
         const result = await db.promise().query(sql, [id]);
         return result[0][0];
+    }
+    
+    static async create(office){
+        const sql = "INSERT INTO offices (office_name, incharge, user_id) VALUES (?, ?, ?)";
+        const params = [office.officeName, office.incharge, office.id];
+        const result = await db.promise().query(sql, params);
+        return result[0].insertId;
     }
 
     static async updateById(id, office){
@@ -41,10 +48,9 @@ module.exports = class Office {
         return result;
     }
 
-    static async create(office){
-        const sql = "INSERT INTO offices (office_name, incharge, user_id) VALUES (?, ?, ?)";
-        const params = [office.officeName, office.incharge, office.id];
-        const result = await db.promise().query(sql, params);
-        return result[0].insertId;
+    static async deleteById(id){
+        const sql = "DELETE FROM offices WHERE office_id = ?"
+        const result = await db.promise().query(sql, [id]);
+        return result;
     }
 }

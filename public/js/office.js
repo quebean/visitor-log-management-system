@@ -49,7 +49,7 @@ function loadData(datas) {
         dataHtml += `<td>${data.office_name}</td>`;
         dataHtml += `<td>${data.incharge}</td>`;
         dataHtml += `<td>${data.username}</td>`;
-        dataHtml += `<td><a class="details-btn" href="admin/visit/${data.office_id}">Edit<a></td>`; 
+        dataHtml += `<td><a class="delete-btn" href="admin/delete/${data.office_id}">Delete<a></td>`; 
         dataHtml += '</tr>';
     });
     document.querySelector('tbody').innerHTML = dataHtml;

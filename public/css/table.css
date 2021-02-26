@@ -56,5 +56,25 @@ th {
 
 .details-btn:hover{
     background-color: #649d66;
-    color: white;
+    color: rgb(255, 255, 255);
+}
+
+.delete-btn{
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background-color: #b35138;
+}
+
+.delete-btn:hover{
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    background-color: #fca29c;
 }

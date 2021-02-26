@@ -32,23 +32,13 @@ module.exports.create_office_post = async (req, res) => {
     }
 }
 
-module.exports.office_details = async (req, res) => {
-    let results = {}
+module.exports.office_delete = async (req, res) => {
     try {
-        results.office = await Office.findById(req.params.id);
-        res.render('office/details', results);
+        const result = await Office.deleteById(req.params.id);
+        res.redirect('/admin/office');
     } catch (error) {
         console.log(error);
-        res.status(404);
-    }
-}
-
-module.exports.office_edit = async (req, res) => {
-    
-    try {
-        
-    } catch (error) {
-        
+        res.status(400).json({success: false, message: 'Data Can not delete'})
     }
 }
 

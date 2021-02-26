@@ -6,8 +6,8 @@ const {formatDateString} = require('../utl/dateFormat');
 module.exports.visit_post = async (req, res) => {
     const {string, category} = req.body;
     try {
-        const result = await Visit.find(string, category);
-        res.status(200).json(result);
+        const visits = await Visit.find(string, category);
+        res.status(200).json({visits: visits});
     } catch (error) {
         console.log(error);
         res.status(404).json({message: 'Failed'})

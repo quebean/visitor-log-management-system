@@ -1,10 +1,11 @@
 const db = require('../config/database');
+const {formatDateString} = require('../utl/dateFormat');
 
 module.exports = class OfficeLog{
     constructor(visitId, officeId) {
         this.visitId = visitId,
         this.officeId = officeId
-        this.timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        this.timestamp = `${formatDateString(new Date)} ${new Date().toLocaleTimeString()}`;
     }
 
     static async findById(id){
@@ -14,6 +15,7 @@ module.exports = class OfficeLog{
     }
 
     static async create(officeLog){
+        console.log(officeLog);
         const sql = "INSERT INTO office_log (visit_id, office_id, timestamp) VALUES (?, ?, ?)";
         const params = [officeLog.visitId, officeLog.officeId, officeLog.timestamp];
         const result = await db.promise().query(sql, params);

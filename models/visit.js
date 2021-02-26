@@ -12,13 +12,17 @@ module.exports = class Visit{
     }
 
     static async find(string, category){
+        console.log(string, category);
         let sql = '';
-        string = `%${string}%`;
         if (category == 'fullname') {
             sql = `SELECT * FROM visits WHERE fullname LIKE ?;`;
-        }else if (category == 'timein') {
+            if (string) {
+                string = `%${string}%`;
+            }
+        } else if (category == 'timein'){
             sql = `SELECT * FROM visits WHERE timein LIKE ?;`;
-        }
+            string = `%${string}%`;
+        } 
         const result = await db.promise().query(sql, [string]);
         return result[0];
     }
@@ -28,7 +32,6 @@ module.exports = class Visit{
         const result = await db.promise().query(sql, [id]);
         return result[0][0];
     }
-
 
     static async create(visit){
         const sql = 'INSERT INTO visits (fullname, address, contact_number, purpose, timein, timeout) VALUES (?, ?, ?, ?, ?, ?)';
