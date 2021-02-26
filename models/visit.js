@@ -12,7 +12,6 @@ module.exports = class Visit{
     }
 
     static async find(string, category){
-        console.log(string, category);
         let sql = '';
         if (category == 'fullname') {
             sql = `SELECT * FROM visits WHERE fullname LIKE ?;`;

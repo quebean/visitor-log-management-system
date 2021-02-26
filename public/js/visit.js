@@ -77,7 +77,6 @@ function formatDateString(date) {
     return [year, month, d].join('-');
 }
 
-
 function modalBind(){
     const openModalButtons = document.querySelectorAll('[data-modal-target]')
     const closeModalButtons = document.querySelectorAll ('[data-close-button]')
