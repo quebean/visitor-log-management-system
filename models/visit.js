@@ -11,7 +11,7 @@ module.exports = class Visit{
         this.timeOut = null;
     }
 
-    static async find(string, category){
+    static async search(string, category){
         let sql = '';
         if (category == 'fullname') {
             sql = `SELECT * FROM visits WHERE fullname LIKE ?;`;

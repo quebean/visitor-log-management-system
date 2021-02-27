@@ -1,10 +1,11 @@
 const Covid = require('../models/covid');
-
+const Visit = require('../models/visit');
+const OfficeLog = require('../models/officeLog');
 
 module.exports.covid = async (req, res) => {
     const {string, category} = req.body;
     try {
-        const result = await Covid.find(string, category);
+        const result = await Covid.search(string, category);
         res.status(200).json(result);
     } catch (error) {
         console.log(error);
@@ -43,5 +44,22 @@ module.exports.survey_post = async (req, res) => {
         }
     }else{
         res.redirect('/form')
+    }
+}
+
+module.exports.covid_show = async (req, res) => {
+    const id = req.params.id
+    try {
+        const visit = await Visit.findById(id);
+        const covid = await Covid.findByVisitId(id);
+        const officeLogs = await OfficeLog.findByVisitId(id);
+        res.status(200).render('admin/covid-details', {
+            visit,
+            covid,
+            officeLogs
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({success: false, message: 'Bad Request'});
     }
 }

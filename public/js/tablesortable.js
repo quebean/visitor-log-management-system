@@ -26,13 +26,13 @@ function sortTableByColumn(table, column, asc = true) {
 }
 
 
-// document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-//     headerCell.addEventListener("click", () => {
-//         console.log('hello');
-//         const tableElement = headerCell.parentElement.parentElement.parentElement;
-//         const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-//         const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+    headerCell.addEventListener("click", () => {
+        console.log('hello');
+        const tableElement = headerCell.parentElement.parentElement.parentElement;
+        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
 
-//         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-//     });
-// });
+        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+    });
+});

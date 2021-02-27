@@ -17,15 +17,6 @@ document.querySelector('#date').addEventListener('change', (event) => {
     getData(date.value, 'timein');
 });
 
-document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-    headerCell.addEventListener("click", () => {
-        const tableElement = headerCell.parentElement.parentElement.parentElement;
-        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
-        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-    });
-});
-
 async function getData(string, category) {
     try {
         const result = await fetch('admin/covid', {
@@ -54,7 +45,7 @@ function loadData(datas) {
         dataHtml += `<td>${data.fullname}</td>`;
         dataHtml += `<td>${data.temperature}</td>`;
         dataHtml += `<td>${data.timein}</td>`;
-        dataHtml += `<td><a class="details-btn" href="admin/visit/${data.visit_id}">Details<a></td>`; 
+        dataHtml += `<td><a class="details-btn" href="admin/covid/${data.visit_id}">Details<a></td>`; 
         dataHtml += `</tr>`;
     });
     document.querySelector('tbody').innerHTML = dataHtml;

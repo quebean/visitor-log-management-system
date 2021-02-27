@@ -28,7 +28,7 @@ app.use('/admin',[verifyAuthUser, verifyAuthRole(ROLE.ADMIN)], adminRoutes);
 app.use((req,res) => res.render('404'));
 
 app.listen(
-    process.env.PORT || 8080, 
+    process.env.PORT, 
     process.env.IP || '0.0.0.0' ,() => {
         console.log(`listening in http://${process.env.IP}:${process.env.PORT}`);
     });

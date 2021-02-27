@@ -10,8 +10,14 @@ module.exports = class OfficeLog{
 
     static async findById(id){
         const sql = 'SELECT * FROM office_log WHERE office_log_id = ?';
-        const result = await db.promise.query(sql, [id]);
+        const result = await db.promise().query(sql, [id]);
         return result[0][0];
+    }
+
+    static async findByVisitId(id){
+        const sql = 'SELECT offices.office_name, office_log.timestamp FROM office_log INNER JOIN offices on offices.office_id = office_log.office_id WHERE visit_id = ?';
+        const result = await db.promise().query(sql, [id]);
+        return result[0];
     }
 
     static async create(officeLog){

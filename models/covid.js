@@ -21,7 +21,7 @@ module.exports = class Covid {
         this.visitId = visitId;
     }
 
-    static async find(string, category){
+    static async search(string, category){
         let sql = '';
         string = `%${string}%`;
         if (category == 'fullname') {
@@ -31,6 +31,12 @@ module.exports = class Covid {
         }
         const result = await db.promise().query(sql, [string]);
         return result[0];
+    }
+
+    static async findByVisitId(id){
+        const sql = 'SELECT * FROM covid WHERE visit_id = ?';
+        const result = await db.promise().query(sql, [id]);
+        return result[0][0];
     }
 
     static async create(covid){

@@ -1,4 +1,5 @@
 const Visit = require('../models/visit');
+const OfficeLog = require('../models/officeLog');
 const jwt = require('../middlewares/authentication');
 
 const {formatDateString} = require('../utl/dateFormat');
@@ -6,7 +7,7 @@ const {formatDateString} = require('../utl/dateFormat');
 module.exports.visit_post = async (req, res) => {
     const {string, category} = req.body;
     try {
-        const visits = await Visit.find(string, category);
+        const visits = await Visit.search(string, category);
         res.status(200).json({visits: visits});
     } catch (error) {
         console.log(error);
@@ -42,4 +43,20 @@ module.exports.scanner_post = async (req, res) => {
         console.log(error);
         res.status(500).json({message: 'Failed'});
     }
-} 
+}
+
+module.exports.visit_show = async (req, res) => {
+    try {
+        const visit = await Visit.findById(req.params.id);
+        const officeLogs = await OfficeLog.findByVisitId(req.params.id);
+        res.status(200).render('admin/visit-details', {
+            visit,
+            officeLogs
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success: false,
+            message: 'Bad request'});
+    }
+}

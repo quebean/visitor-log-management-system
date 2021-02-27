@@ -7,7 +7,7 @@ module.exports = class Office {
         this.id = 0;
     }
 
-    static async find(string, category){
+    static async search(string, category){
         let sql = '';
         string = `%${string}%`;
         if (!string || !category) {

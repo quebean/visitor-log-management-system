@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../base.ejs') %> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baste Visitor</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/visit-header.css">
+    <link rel="stylesheet" href="css/tablesortable.css">
+    <link rel="stylesheet" href="css/details.css">
+<body>
+   <div class="wrapper">
+        <nav>
+            <div class="nav-container">
+                <div class="brand-container">
+                    <a href="/admin/dashboard">
+                        <img src="assets/seal.png" alt="" width="100px">
+                        <h1>Baste Visitor</h1>
+                    </a>
+                </div>
+                <div class="navigation">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="admin/dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a href="admin/visit">Visit List</a></li>
+                        <li class="nav-item active"><a href="admin/covid">Covid List</a></li>
+                        <li class="nav-item"><a href="admin/office">Office List</a></li>
+                        <li class="nav-item"><a href="admin/create-office">Create Office</a></li>
+                        <li class="nav-item"><a href="admin/scanner">Scanner</a></li>
+                        <li class="nav-item"><a href="admin/update">Change Password</a></li>
+                        <li class="nav-item"><a href="auth/logout">Logout</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+
+        <main>
+            <div class="main-container">
+                <div class="titlepage">
+                    <h1>Visit Details</h1>
+                </div>
+                <div class="main-content">
+                    <div class="content-details">
+                        <hr>
+                        <% const visitHead = ['Visit ID', 'Fullname', 'Address', 'Contact Number', 'Purpose', 'Time In', 'Time Out'] %> 
+                        <%  Object.entries(visit).forEach(([, value], index) => { %>
+                            <div class="details-item">
+                                <h1><%= visitHead[index] %> </h1>
+                                <p><%= value %></p>
+                            </div>
+                         <%  }); %>
+                         <hr>
+                         <% const covidHead = ['Covid ID', 'Temperature', 'Age', 'Sex', 'Fever of 38°C and above for the past 14 days', 'Cough', 'Colds', 'Shortnes of Breath', 'Diarrhea', 'Other Symptoms', 'History of Travel areas with COVID-19 for the past 14 days', 'Location of Travel', 'Close contact with a confirmed or probable covid case', 'Providing direct care without a PPE', 'Staying in the same close environment', 'Travelling together in close proximity', 'Agree'] %> 
+                        <%  Object.entries(covid).forEach(([, value], index) => { %>
+                            <% if (index != 0 && index != covidHead.length) { %>
+                                <div class="details-item">
+                                    <h1><%= covidHead[index] %> </h1>
+                                    <p><%= value %></p>
+                                </div>
+                            <% } %> 
+                         <%  }); %>
+                         <hr>
+                    </div>
+                    <div>
+                        <h1 class="table-title">Office Visited List</h1>
+                        <div class="table">
+                            <table class="table-sortable">
+                                <thead>
+                                    <tr>
+                                        <th>Office Name</th>
+                                        <th>Time Visited</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- OFFICES LOGS DATA GOES HERE-->
+                                    <% officeLogs.forEach(officelLog => { %>
+                                        <tr>
+                                            <td>
+                                                <%= officelLog.office_name %> 
+                                            </td>
+                                            <td>
+                                                <%= officelLog.timestamp %> 
+                                            </td>
+                                        </tr>
+                                        <% }); %> 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </main>
+   </div>
+</body>
+<script src="js/dashboard.js"></script>
+<script src="js/tablesortable.js"></script>
+</html>
