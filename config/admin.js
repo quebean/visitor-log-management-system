@@ -4,8 +4,8 @@ const User = require('../models/user');
 const register = () => {
     return new Promise( async (resolve, reject) => {
         const user = new User(
-            'adminbaste',
-            'bastevisitor',
+            'adminbaste', // username
+            'bastevisitor', // password
             'admin'
         )
         try {
