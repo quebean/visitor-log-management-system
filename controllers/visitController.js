@@ -8,7 +8,7 @@ module.exports.visit_post = async (req, res) => {
     const {string, category} = req.body;
     try {
         const visits = await Visit.search(string, category);
-        res.status(200).json({visits: visits});
+        res.status(200).json(visits);
     } catch (error) {
         console.log(error);
         res.status(404).json({message: 'Failed'})

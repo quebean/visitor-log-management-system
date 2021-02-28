@@ -1,3 +1,5 @@
+const { off } = require('../config/database');
+const { findById } = require('../models/office');
 const Office = require('../models/office');
 const User = require('../models/user');
 
@@ -32,19 +34,32 @@ module.exports.create_office_post = async (req, res) => {
     }
 }
 
-module.exports.office_delete = async (req, res) => {
+module.exports.office_edit = async (req, res) => {
     try {
-        const result = await Office.deleteById(req.params.id);
-        res.redirect('/admin/office');
+        const office = await Office.findById(req.params.id);
+        res.status(200).render('admin/edit-office', {office});
     } catch (error) {
         console.log(error);
-        res.status(400).json({success: false, message: 'Data Can not delete'})
+    }
+}
+
+module.exports.office_put = async (req, res) => {
+    const office = new Office(
+        req.body.officeName,
+        req.body.incharge
+    )
+    try {
+        const result = await Office.updateById(req.params.id, office, req.body.username);
+        res.status(200).json({success: true}); 
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({success: false});
     }
 }
 
 module.exports.office_scanner = async (req, res) => {
     try {
-        const result = await Office.findByUserId(req.user.user_id);
+        const result = await Office.findUserById(req.user.user_id);
         res.status(200).render('officeScanner', {result});
     } catch (error) {
         console.log(error);

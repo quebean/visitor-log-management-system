@@ -99,3 +99,29 @@ module.exports.validateVisit = (req, res, next) => {
     }
 }
 
+module.exports.validateOfficeUpdate = async (req, res, next) => {
+    const results = {};
+    results.success = true;
+    const username = req.body.username;
+    
+    if(username.length < 8) {
+        results.success = false;
+        results.message = 'Username must be atlest 8 characters long.'
+    }else{
+        try {
+            const result = await User.findByUsername(username);
+            if(result){
+                results.success = false;
+                results.message = 'Username is already taken.'
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+   
+    if(results.success){
+        next();
+    }else{
+        res.status(400).json(results);
+    }
+}

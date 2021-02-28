@@ -31,7 +31,7 @@ async function getData(string, category) {
             })
         })
         const data = await result.json();
-        loadData(data.visits);
+        loadData(data);
     } catch (error) {
         console.log(error);
     }
@@ -63,7 +63,7 @@ function formatDateString(date) {
         month = '0' + month;
     }
     if(d < 10){
-        d = 0 + d;
+        d = '0' + d;
     }
     return [year, month, d].join('-');
 }
@@ -148,5 +148,5 @@ function modal(data) {
                 </div>
             </div>
         </div>
-    </div>`;
+    </div>`
 }

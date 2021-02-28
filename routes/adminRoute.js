@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {covid, covid_show} = require('../controllers/covidController');
 const {visit_post, scanner_post, visit_show} = require('../controllers/visitController');
-const {office, create_office_post, office_delete} = require('../controllers/officeController');
-const {validateOffice} = require('../middlewares/validateBody');
+const {office, create_office_post, office_delete, office_edit, office_put} = require('../controllers/officeController');
+const {validateOffice, validateOfficeUpdate} = require('../middlewares/validateBody');
 
 router.get('/dashboard', (req, res) => res.render('admin/dashboard'));
 
@@ -17,7 +17,8 @@ router.get('/covid/:id', covid_show);
 
 router.get('/office', (req, res) => res.render('admin/office'));
 router.post('/offices', office);
-router.get('/delete/:id', office_delete);
+router.get('/office/edit/:id', office_edit);
+router.post('/office/edit/:id', [validateOfficeUpdate], office_put);
 router.get('/create-office', (req, res) => res.render('admin/coffice'));
 router.post('/create-office', [validateOffice], create_office_post);
 

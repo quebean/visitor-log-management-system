@@ -6,7 +6,7 @@ module.exports.formatDateString = (date) => {
         month = '0' + month;
     }
     if(d < 10){
-        d = 0 + d;
+        d = '0' + d;
     }
     return [year, month, d].join('-');
 }

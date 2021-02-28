@@ -23,12 +23,12 @@ module.exports = class Office {
     }
 
     static async findById(id){
-        const sql = 'SELECT * FROM offices WHERE user_id = ?';
+        const sql = 'SELECT * FROM offices INNER JOIN users ON users.user_id = offices.user_id WHERE office_id = ?';
         const result = await db.promise().query(sql, [id]);
         return result[0][0];
-    }
+    }   
 
-    static async findByUserId(id){
+    static async findUserById(id){
         const sql = 'SELECT * FROM offices INNER JOIN users ON offices.user_id = users.user_id WHERE offices.user_id = ?';
         const result = await db.promise().query(sql, [id]);
         return result[0][0];
@@ -41,9 +41,9 @@ module.exports = class Office {
         return result[0].insertId;
     }
 
-    static async updateById(id, office){
-        const sql = 'UPDATE offices SET office_name = ?, incharge = ? WHERE office_id = ?';
-        const params = [office.officeName, office.incharge, id];
+    static async updateById(office_id, office, username){
+        const sql = 'UPDATE offices INNER JOIN users ON users.user_id = offices.user_id SET offices.office_name = ?, offices.incharge = ?, users.username = ? WHERE office_id = ?';
+        const params = [office.officeName, office.incharge, username, office_id];
         const result = await db.promise().query(sql, params);
         return result;
     }

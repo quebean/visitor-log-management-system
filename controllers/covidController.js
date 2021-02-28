@@ -5,8 +5,8 @@ const OfficeLog = require('../models/officeLog');
 module.exports.covid = async (req, res) => {
     const {string, category} = req.body;
     try {
-        const result = await Covid.search(string, category);
-        res.status(200).json(result);
+        const covid = await Covid.search(string, category);
+        res.status(200).json(covid);
     } catch (error) {
         console.log(error);
     }
