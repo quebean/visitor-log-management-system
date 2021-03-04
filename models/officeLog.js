@@ -21,7 +21,6 @@ module.exports = class OfficeLog{
     }
 
     static async create(officeLog){
-        console.log(officeLog);
         const sql = "INSERT INTO office_log (visit_id, office_id, timestamp) VALUES (?, ?, ?)";
         const params = [officeLog.visitId, officeLog.officeId, officeLog.timestamp];
         const result = await db.promise().query(sql, params);
