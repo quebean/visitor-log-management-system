@@ -26,7 +26,7 @@
                         <li class="nav-item"><a href="admin/visit">Visit List</a></li>
                         <li class="nav-item"><a href="admin/covid">Covid List</a></li>
                         <li class="nav-item active"><a href="admin/office">Office List</a></li>
-                        <li class="nav-item"><a href="admin/create-office">Create Office</a></li>
+                        <li class="nav-item"><a href="admin/office/create">Create Office</a></li>
                         <li class="nav-item"><a href="admin/scanner">Scanner</a></li>
                         <li class="nav-item"><a href="admin/update">Change Password</a></li>
                         <li class="nav-item"><a href="auth/logout">Logout</a></li>
@@ -50,7 +50,7 @@
                             <input type="text" class="input" value="<%= office.incharge %>" name="incharge" id="incharge" required>
                         </div>
                         <div class="input_field">
-                            <button id="submit" class="btn" data-id='<%= office.office_id %> '>Edit Office</button>
+                            <button id="submit" class="btn" data-id='<%= office.user_id %> '>Edit Office</button>
                         </div>
                         <div class="input_field">
                             <p id="error-message" style="color: red; text-align: center;"></p>

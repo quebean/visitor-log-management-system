@@ -42,7 +42,7 @@ module.exports = class Office {
     }
 
     static async updateById(office_id, office, username){
-        const sql = 'UPDATE offices INNER JOIN users ON users.user_id = offices.user_id SET offices.office_name = ?, offices.incharge = ?, users.username = ? WHERE office_id = ?';
+        const sql = 'UPDATE offices INNER JOIN users ON users.user_id = offices.user_id SET offices.office_name = ?, offices.incharge = ?, users.username = ? WHERE users.user_id = ?';
         const params = [office.officeName, office.incharge, username, office_id];
         const result = await db.promise().query(sql, params);
         return result;

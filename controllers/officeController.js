@@ -1,9 +1,7 @@
-const { off } = require('../config/database');
-const { findById } = require('../models/office');
 const Office = require('../models/office');
 const User = require('../models/user');
 
-module.exports.office = async (req, res) => {
+module.exports.officeSearch = async (req, res) => {
     try {
         const offices = await Office.search(req.body.search, req.body.category);
         res.status(200).json({success: true, offices});
@@ -13,7 +11,7 @@ module.exports.office = async (req, res) => {
     }
 }
 
-module.exports.create_office_post = async (req, res) => {
+module.exports.createOffice = async (req, res) => {
     const user = new User(
         req.body.username,
         req.body.password,
@@ -34,16 +32,17 @@ module.exports.create_office_post = async (req, res) => {
     }
 }
 
-module.exports.office_edit = async (req, res) => {
+module.exports.officeShow = async (req, res) => {
     try {
         const office = await Office.findById(req.params.id);
+        console.log(office);
         res.status(200).render('admin/edit-office', {office});
     } catch (error) {
         console.log(error);
     }
 }
 
-module.exports.office_put = async (req, res) => {
+module.exports.officeUpdate = async (req, res) => {
     const office = new Office(
         req.body.officeName,
         req.body.incharge
@@ -57,7 +56,7 @@ module.exports.office_put = async (req, res) => {
     }
 }
 
-module.exports.office_scanner = async (req, res) => {
+module.exports.officeScanner = async (req, res) => {
     try {
         const result = await Office.findUserById(req.user.user_id);
         res.status(200).render('officeScanner', {result});

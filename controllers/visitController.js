@@ -4,7 +4,7 @@ const jwt = require('../middlewares/authentication');
 
 const {formatDateString} = require('../utl/dateFormat');
 
-module.exports.visit_post = async (req, res) => {
+module.exports.visitSearch = async (req, res) => {
     const {string, category} = req.body;
     try {
         const visits = await Visit.search(string, category);
@@ -15,7 +15,7 @@ module.exports.visit_post = async (req, res) => {
     }
 }
 
-module.exports.form_post = async (req, res) => {
+module.exports.visitCreate = async (req, res) => {
     const visit = new Visit(
         req.body.name,
         req.body.address,
@@ -33,7 +33,7 @@ module.exports.form_post = async (req, res) => {
     }
 }
 
-module.exports.scanner_post = async (req, res) => {
+module.exports.visitUpdateTimeOut = async (req, res) => {
     const date = `${formatDateString(new Date)} ${new Date().toLocaleTimeString()}`;
     const id = req.body.id;
     try {
@@ -45,7 +45,7 @@ module.exports.scanner_post = async (req, res) => {
     }
 }
 
-module.exports.visit_show = async (req, res) => {
+module.exports.visitShow = async (req, res) => {
     try {
         const visit = await Visit.findById(req.params.id);
         const officeLogs = await OfficeLog.findByVisitId(req.params.id);

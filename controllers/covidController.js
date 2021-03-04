@@ -2,7 +2,7 @@ const Covid = require('../models/covid');
 const Visit = require('../models/visit');
 const OfficeLog = require('../models/officeLog');
 
-module.exports.covid = async (req, res) => {
+module.exports.covidSearch = async (req, res) => {
     const {string, category} = req.body;
     try {
         const covid = await Covid.search(string, category);
@@ -12,7 +12,7 @@ module.exports.covid = async (req, res) => {
     }
 } 
 
-module.exports.survey_post = async (req, res) => {
+module.exports.covidCreate = async (req, res) => {
     const id = req.visitId;
     if (id) {
         const covid = new Covid(
@@ -47,7 +47,7 @@ module.exports.survey_post = async (req, res) => {
     }
 }
 
-module.exports.covid_show = async (req, res) => {
+module.exports.covidShow = async (req, res) => {
     const id = req.params.id
     try {
         const visit = await Visit.findById(id);

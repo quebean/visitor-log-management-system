@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "admin-setup": "node ./config/admin.js"
+    "admin-setup": "node ./config/admin.js",
+    "build": "node app",
+    "test": "nodemon app"
   },
   "keywords": [],
   "author": "Balingbing, Pagcu, Rivera, Sarmiento",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
   }
 }

@@ -1,7 +1,7 @@
 const OfficeLog = require('../models/officeLog');
 const Office = require('../models/office');
 
-module.exports.officeLogPost = async (req, res) => {
+module.exports.officeLogCreate = async (req, res) => {
     const officeLog = new OfficeLog();
     try {
         const officeResult = await Office.findByUserId(req.user.user_id);

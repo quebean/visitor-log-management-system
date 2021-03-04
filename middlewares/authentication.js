@@ -7,7 +7,7 @@ module.exports.createToken = (id) => {
 }
 
 module.exports.verifyAuthUser = (req, res, next) => {
-    const token = req.cookies.jwt;
+    const token = req.cookies.userToken;
     if (token) {
         jwt.verify(token, process.env.SECRET, async (error, decodedToken) => {
             if (error) {
@@ -32,7 +32,7 @@ module.exports.verifyAuthUser = (req, res, next) => {
 }
 
 module.exports.verifyLogin = (req, res, next) => {
-    const token = req.cookies.jwt;
+    const token = req.cookies.userToken;
     if (token) {
         jwt.verify(token, process.env.SECRET, async (error, decodedToken) => {
             if (error) {

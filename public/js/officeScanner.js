@@ -9,7 +9,7 @@ const snd = new Audio('assets/sound.mp3')
 // Scanner listener then action
 scanner.addListener('scan', async (content) => {
     try {
-        const result = await fetch('/office/log', {
+        const result = await fetch('/office/officelog', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
