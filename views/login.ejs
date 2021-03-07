@@ -10,22 +10,24 @@
 </head>
 <body>
     <div class="wrapper">
-        <img class="logo" width="111" height="108" src="assets/seal.png"> 
-        <div class="binfo">Log In</div>
-        <form class="form">
-            <div class="input_field">
-                <input type="text" class="input" name="username" id="username"  placeholder="Username" autocomplete="username" required>
-            </div>
-            <div class="input_field">
-                <input type="password" class="input" name="password" id="password" placeholder="Password" autocomplete="current-password" required>
-            </div>
-            <div class="input_field">
-                <button id="submit" class="btn">Login</button>
-            </div>
-            <div>
-                <p id="error-message"></p>
-            </div>    
-        </form>
+        <div class="container">
+            <img class="logo" width="111" height="108" src="assets/seal.png"> 
+            <div class="binfo">Log In</div>
+            <form class="form">
+                <div class="input_field">
+                    <input type="text" class="input" name="username" id="username"  placeholder="Username" autocomplete="username" required>
+                </div>
+                <div class="input_field">
+                    <input type="password" class="input" name="password" id="password" placeholder="Password" autocomplete="current-password" required>
+                </div>
+                <div class="input_field">
+                    <button id="submit" class="btn">Login</button>
+                </div>
+                <div>
+                    <p id="error-message"></p>
+                </div>    
+            </form>
+        </div>
     </div>
 </body>
 <script src="js/login.js"></script>

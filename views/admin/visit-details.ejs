@@ -39,12 +39,18 @@
 
         <main>
             <div class="main-container">
+                <div class="title">
+                    <h1>San Sebastian College Recoletos de Cavite Visitor Log System</h1>
+                </div>
                 <div class="titlepage">
                     <h1>Visit Details</h1>
                 </div>
+                
                 <div class="main-content">
                     <div class="content-details">
-                        <hr>
+                        <div class="detail-form">
+                            <h1>Form</h1>
+                        </div>
                         <% const visitHead = ['Visit ID', 'Fullname', 'Address', 'Contact Number', 'Purpose', 'Time In', 'Time Out'] %> 
                         <%  Object.entries(visit).forEach(([, value], index) => { %>
                             <div class="details-item">
@@ -52,34 +58,36 @@
                                 <p><%= value %></p>
                             </div>
                          <%  }); %>
-                         <hr>
                     </div>
-                    <div>
-                        <h1 class="table-title">Office Visited List</h1>
-                        <div class="table">
-                            <table class="table-sortable">
-                                <thead>
-                                    <tr>
-                                        <th>Office Name</th>
-                                        <th>Time Visited</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- OFFICES LOGS DATA GOES HERE-->
-                                    <% officeLogs.forEach(officelLog => { %>
-                                        <tr>
-                                            <td>
-                                                <%= officelLog.office_name %> 
-                                            </td>
-                                            <td>
-                                                <%= officelLog.timestamp %> 
-                                            </td>
-                                        </tr>
-                                        <% }); %> 
-                                </tbody>
-                            </table>
+                    
+                   
+                    <div class="table">
+                        <div class="detail-form">
+                            <h1>Visited Office List</h1>
                         </div>
+                        <table class="table-sortable">
+                            <thead>
+                                <tr>
+                                    <th>Office Name</th>
+                                    <th>Time Visited</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- OFFICES LOGS DATA GOES HERE-->
+                                <% officeLogs.forEach(officelLog => { %>
+                                    <tr>
+                                        <td>
+                                            <%= officelLog.office_name %> 
+                                        </td>
+                                        <td>
+                                            <%= officelLog.timestamp %> 
+                                        </td>
+                                    </tr>
+                                    <% }); %> 
+                            </tbody>
+                        </table>
                     </div>
+                    
                 </div>
             </div> 
         </main>

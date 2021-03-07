@@ -1,10 +1,27 @@
 const db = require('../config/database');
+const { formatDateString } = require('../utl/dateFormat');
 
 module.exports = class Office {
     constructor(officeName, incharge) {
         this.officeName = officeName;
         this.incharge = incharge;
         this.id = 0;
+    }
+
+    static async find(){
+        const sql = 'SELECT * FROM offices';
+        const result = await db.promise().query(sql);
+        return result[0];
+    }
+
+    static async countLogByOffice(office_id){
+        const d = new Date();
+        d.setDate(d.getDate() - 7);
+        const start = `${formatDateString(d)+"%"}`
+        const end = `${formatDateString(new Date())+"%"}`
+        const sql = `SELECT count(office_log.office_log_id) AS "count" FROM visits INNER JOIN office_log ON office_log.visit_id = visits.visit_id WHERE office_log.office_id = ? AND office_log.timestamp BETWEEN ? AND ?`;
+        const result = await db.promise().query(sql, [office_id, start, end]);
+        return result[0][0].count;
     }
 
     static async search(string, category){

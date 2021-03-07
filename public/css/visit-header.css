@@ -1,6 +1,9 @@
 .visit-header{
+    /* max-width: 1000px; */
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.125);
     width: 100%;
     font-size: 20px;
+    margin-bottom: 20px;
 }
 .visit-header form{
     display: flex;
@@ -8,8 +11,6 @@
     background-color: rgb(196, 196, 196);
     justify-content: space-between;
     padding: 10px 20px;
-    margin: 30px;
-    border-radius: 10px;
 }
 
 .visit-header > * {
@@ -17,15 +18,7 @@
 }
 
 .visit-header input, select{
-    padding: 3px;
-    border-radius: 10px;
-    border: none;
-}
-
-.visit-header select{
-    width: 150px;
-    padding: 2px;
-    border-radius: 10px;
+    padding: 5px;
     border: none;
 }
 
@@ -34,17 +27,25 @@
     background-color: #06623b;
     color: white;
     border: none;
-    border-radius: 10px;
-    transition: background-color .6s;
 }
 
 .visit-header button:hover{
     background-color: #649d66;
+    cursor: pointer;
+}
+
+.visit-header #date-label{
+    font-weight: 500;
+    color: #06623b;
 }
 
 .visit-header #date{
     max-width: 150px;
     width: 100%;
+}
+
+.visit-header #date:hover{
+    cursor: pointer;
 }
 
 .visit-header .office-form{

@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baste Visitor</title>
     <link rel="stylesheet" href="css/dashboard.css">
-    <script src="js/dashboard.js"></script>
 
 <body>
    <div class="wrapper">
@@ -36,9 +35,61 @@
 
         <main>
             <div class="main-container">
-                               
+                <div class="title">
+                    <h1>San Sebastian College Recoletos de Cavite Visitor Log System</h1>
+                </div>
+                <div class="titlepage">
+                    <h1>Dashboard</h1>
+                </div>
+                        
+                <div class="main-dashboard">
+                    <div class="top">
+
+                        <div class="counter">
+                            <div class="detail-widgets">
+                                <h1>Daily Counter</h1>
+                                <div>
+                                    <h1 class="count">0</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bar-graph">
+                            <div class="detail-widgets">
+                                <h1>Last 7 Days Report</h1>
+                                <div class="bar-box">
+                                    <canvas id="bar-graph"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="bottom">
+
+                        <div class="pie-chart">
+                            <div class="detail-widgets">
+                                <h1>Monthly Offices Log Distribution</h1>
+                                <div class="pie-box">
+                                    <canvas id="pie-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="top-three">
+                            <div class="detail-widgets">
+                                <h1>Top 3 Visited Office</h1>
+                                <div class="top-three-box">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="js/dashboard.js"></script>
 </html>

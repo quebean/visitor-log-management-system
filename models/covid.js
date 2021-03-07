@@ -25,7 +25,7 @@ module.exports = class Covid {
         let sql = '';
         string = `%${string}%`;
         if (category == 'fullname') {
-            sql = `SELECT * FROM visits INNER JOIN covid ON visits.visit_id = covid.visit_id WHERE visits.fullname LIKE ?`;
+            sql = `SELECT * FROM visits INNER JOIN covid ON visits.visit_id = covid.visit_id WHERE visits.fullname LIKE ? LIMIT 15`;
         }else if (category == 'timein') {
             sql = `SELECT * FROM covid INNER JOIN visits ON visits.visit_id = covid.visit_id WHERE visits.timein LIKE ?`; 
         }

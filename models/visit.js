@@ -14,7 +14,7 @@ module.exports = class Visit{
     static async search(string, category){
         let sql = '';
         if (category == 'fullname') {
-            sql = `SELECT * FROM visits WHERE fullname LIKE ?;`;
+            sql = `SELECT * FROM visits WHERE fullname LIKE ? LIMIT 15;`;
             if (string) {
                 string = `%${string}%`;
             }
@@ -24,6 +24,13 @@ module.exports = class Visit{
         } 
         const result = await db.promise().query(sql, [string]);
         return result[0];
+    }
+
+    static async count(date){
+        date = `%${date}%`
+        const sql = 'SELECT COUNT(visit_id) AS "count" FROM visits WHERE timein LIKE ?';
+        const result = await db.promise().query(sql, [date]);
+        return result[0][0].count;
     }
 
     static async findById(id){

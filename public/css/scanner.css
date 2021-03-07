@@ -1,9 +1,5 @@
-body{
-    background-color: #06623b;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+@import 'main.css';
+
 .wrapper{
     height: 100vh;
     display: flex;
@@ -13,12 +9,18 @@ body{
 }
 
 .video-container{
-    padding: 10px;
+    padding: 20px;
     background-color: white;
     border-radius: 10px;
     text-align: center;
     color: #06623b;
     box-shadow: 4px 4px 15px black;
+}
+
+h1{
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 10px;
 }
 
 button{
