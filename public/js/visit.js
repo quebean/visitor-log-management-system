@@ -111,7 +111,6 @@ function modal(data) {
     <div class="modal" id="modal${data.visit_id}">
         <div class="modal-header">
             <div class="title">Visit Details</div>
-            <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
 
