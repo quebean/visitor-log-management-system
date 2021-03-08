@@ -16,7 +16,7 @@ module.exports = class Office {
 
     static async countLogByOffice(office_id){
         const d = new Date();
-        d.setDate(d.getDate() - 7);
+        d.setDate(d.getDate() - 30);
         const start = `${formatDateString(d)+"%"}`
         const end = `${formatDateString(new Date())+"%"}`
         const sql = `SELECT count(office_log.office_log_id) AS "count" FROM visits INNER JOIN office_log ON office_log.visit_id = visits.visit_id WHERE office_log.office_id = ? AND office_log.timestamp BETWEEN ? AND ?`;

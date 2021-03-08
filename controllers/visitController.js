@@ -66,7 +66,7 @@ module.exports.dashboard = async (req, res) => {
         // last seven days count //
         let sevenDays = [];
         let sevenDaysCount = []
-        for (let i = 0; i <= 29; i++) {
+        for (let i = 0; i <= 7; i++) {
             const d = new Date;
             d.setDate(d.getDate() - i);
             const result = await Visit.count(formatDateString(d));

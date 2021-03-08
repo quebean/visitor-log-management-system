@@ -63,7 +63,3 @@ async function getData() {
 }
 
 getData();
-setInterval(() => {
-    getData();
-}, 10000);
-
