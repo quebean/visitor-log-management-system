@@ -89,6 +89,7 @@ main .main-container{
 main .main-container .title h1{
     font-size: 2rem;
     font-weight: 500;
+    text-align: center;
     color: #06623b;
 }
 
@@ -196,7 +197,40 @@ main .main-container .main-dashboard .detail-widgets h1{
     color: white;
 }
 
+@media only screen and (max-width: 960px){
+    main .main-container .main-dashboard .top, .bottom{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
 
+    main .main-container .main-dashboard .counter{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    main .main-container .main-dashboard .bar-graph{
+        width: 100%;     
+        margin-bottom: 20px;
+    }
+
+    main .main-container .main-dashboard .pie-chart{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    main .main-container .main-dashboard .top-three{
+        width: 100%;    
+        margin-bottom: 20px;
+    }
+
+    #pie-chart{
+        margin-top: 15px;
+        width: 100%;
+    }
+
+
+}
 
 /* @media only screen and (max-width: 960px){
     .wrapper{
