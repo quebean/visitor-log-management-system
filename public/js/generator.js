@@ -9,6 +9,9 @@ document.querySelector('.visitId').textContent = cookie;
 outputQR.clear();
 outputQR.makeCode(cookie);
 
+const visitorCokie = getCookie(document.cookie, 'visitorName');
+document.querySelector('.visitorName').textContent = formatCookieString(visitorCokie);
+
 function getCookie(cookies, name) {
     const cookieArr = cookies.split('; ');
     let result = '';
@@ -18,6 +21,11 @@ function getCookie(cookies, name) {
         }
     });
     return result;
+}
+
+function formatCookieString(string) {
+    const fullname = string.split('%20');
+    return fullname.join(' ');
 }
 
 document.querySelector('button').addEventListener('click', (event) => {

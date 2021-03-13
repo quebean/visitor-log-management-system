@@ -36,6 +36,9 @@ module.exports.covidCreate = async (req, res) => {
         )
         try {
             const result = await Covid.create(covid);
+            const visit = await Visit.findById(id);
+            visit.fullname
+            res.cookie('visitorName', visit.fullname, {maxAge: 1000 * 60 * 10});
             res.cookie('visitIdCookie', id, {maxAge: 1000 * 60 * 10});
             res.redirect('qrcode');
         } catch (error) {
