@@ -35,7 +35,6 @@ module.exports.createOffice = async (req, res) => {
 module.exports.officeShow = async (req, res) => {
     try {
         const office = await Office.findById(req.params.id);
-        console.log(office);
         res.status(200).render('admin/edit-office', {office});
     } catch (error) {
         console.log(error);
