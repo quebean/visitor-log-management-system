@@ -110,11 +110,13 @@ module.exports.validateOfficeUpdate = async (req, res, next) => {
     }else{
         try {
             const result = await User.findByUsername(username);
-            if (req.params.id == result.user_id) {
-                result.success = true;
-            }else if(result){
-                results.success = false;
-                results.message = 'Username is already taken.'
+            if (result) {
+                if (req.params.id == result.user_id) {
+                    result.success = true;
+                }else if(result){
+                    results.success = false;
+                    results.message = 'Username is already taken.'
+                }
             }
         } catch (error) {
             console.log(error);
