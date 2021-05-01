@@ -47,7 +47,7 @@ function loadData(datas) {
         dataHtml += `<tr data-modal-target="#modal${data.visit_id}">`;
         dataHtml += `<td>${data.fullname}</td>`;
         dataHtml += `<td>${data.timein}</td>`;
-        dataHtml += `<td>${(data.timeout)  ? data.timein : '<span style="color: red;">No out</span>'}</td>`;
+        dataHtml += `<td>${(data.timeout)  ? data.timeout : '<span style="color: red;">No out</span>'}</td>`;
         dataHtml += `<td><a class="details-btn" href="admin/visit/${data.visit_id}">Details<a>${modal(data)}</td>`; 
         dataHtml += `</tr>`;
         
